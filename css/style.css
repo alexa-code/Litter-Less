@@ -1,0 +1,39 @@
+#map_canvas {
+	height:210px
+}
+
+.clickable {
+	cursor:pointer
+}
+
+#full_map_canvas {
+	height:500px;
+	display:none;
+}
+
+.link {
+	color:#008cba
+}
+
+#map-screen {
+	display: none;
+	z-index:50;
+}
+
+#home-screen {
+	z-index:5;
+}
+
+#profile-screen {
+	display:none;
+	z-index:50;
+}
+
+#construction-screen {
+	display:none;
+	z-index:50;
+} 
+
+#pie-chart {
+	z-index:60;
+} 

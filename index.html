@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<head>
+	<title>Litter Less</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
+	<link rel="stylesheet" href="css/foundation.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+  <link rel="stylesheet" href="css/jquery.jqplot.css" />
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+	<script src="data.js"></script>
+  <script src="home.js"></script>
+  <script src="mapscreen.js"></script>
+  <script src="geolocationmarker.js"></script>
+  <script src="jquery.jqplot.js"></script>
+  <script src="jqplot.pieRenderer.js"></script>
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+</head>
+<body>
+	<script src="foundation.js"></script>
+  <script src="foundation.reveal.js"></script>
+  <div id="home-screen">
+	<div class="row">
+		<div class="large-12 columns callout panel">
+			<h1>Litter Less</h1>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns callout panel clickable">
+			<a class="nearest-bin"><h4>Nearest Trash Can</h4></a>
+		</div>
+	</div>
+	<div class="row">
+		<div class="small-6 columns callout panel clickable under-construction"><h4>Find Nearest Dumpster</h4></div>
+		<div class="small-6 columns callout panel clickable under-construction"><h4>Find Nearest Recycling</h4></div>
+	</div>
+	<div class="row">
+		<div class="small-6 columns callout panel clickable under-construction"><h4>Add Bin</h4></div>
+		<div class="small-6 columns callout panel clickable under-construction"><h4>Update Bin</h4></div>
+	</div>
+	<div class="row">
+		<div class="small-12 columns callout panel sign-in clickable"><h4>Sign In</h4></div>
+	</div>
+	<div id="map_canvas"></div>
+
+   <div id="signInPopup" class="reveal-modal">
+	  <h2>Sign Into Your Profile.</h2>
+	  <form>
+	  <div class="row">
+	    <div class="large-12 columns">
+	      <label><h5>User ID:</h5></label>
+	      <input type="text" id="username-input" />
+	    </div>
+	  </div>
+      <div class="row">
+	    <div class="large-12 columns">
+	      <label><h5>Password:</h5></label>
+	      <input type="password" id="password-input" />
+	    </div>
+      </div>
+	  <div class="row">
+	  	 <a href="#" class="success button" id="sign-in-btn">Sign In</a>
+	  </div>
+   </div>
+</div>
+
+
+<div id="map-screen">
+  <div class="row" style="background-color:#335CAD">
+  	<ul class="side-nav">
+  	<li><a class="back-button"><h6 class='link' style='color:#BCBDC0'>Back to Home Screen</h6></a></li>
+	</ul>
+  </div>
+  <div class="row" style="background-color:#f2f2f2">
+   <ul class="side-nav">
+     <li><a class="new-bin"><h6 class='link'>Add New Bin to Current Location</h6></a></li>
+     <li class="divider"></li>
+     <li><a><h6 class='link'>Remove Current Bin</h6></a></li>
+     <li><a><h6 class='link'>Report Current Bin</h6></a></li>
+     <li class="divider"></li>
+     <li><a><h6 class='link'>Show all Trash Bins Near Me</h6></a></li>
+   </ul>
+  </div>
+  <div id="full_map_canvas"></div>
+</div>
+
+
+<div id="profile-screen">
+    <div class="row" style="background-color:#335CAD">
+        <ul class="side-nav">
+            <li><a class="back-button"><h6 class='link' style='color:#BCBDC0'>Back to Home Screen</h6></a></li>
+         </ul>
+    </div>
+    <div class="row" style="background-color:#70DB93">
+        <div style="text-align:center">
+            <div id="user"><h1 style="margin-top:20px">User1</h1></div>
+            <img src="img/TrashKing.jpg" height="150" width="150" 
+              style="margin-bottom:10px"/>
+            <h3>Your Current Rank:</h3> 
+            <h6 style="margin-top:-10px">Trash King</h6>
+            <h4>Total Points: 40</h4> 
+            <br />
+            <img src="img/chart.png" height="250" width="250" style="margin-bottom:25px"/> 
+       
+    </div>
+      <div class="small-6 columns">
+          <h4>Recent Activity</h4>
+          <ul class="side-nav">
+              <li><h6>Dec 9 - Used a Bin</h6></li>
+              <li><h6>Dec 6 - Used a Bin</h6></li>
+              <li><h6>Dec 4 - Added a Bin</h6></li>
+              <li><h6>Dec 1 - Used a Bin</h6></li>
+          </ul>
+      </div>
+      <div class="small-6 columns">
+          <h4>Point Distribution</h4> 
+            <ul class="side-nav">
+              <li><h6 style="margin-bottom:-5px">Number of bins used: 19</h6><h7>1 point each</h7></li>
+              <li><h6 style="margin-bottom:-5px">Number of bins added: 3</h6><h7>5 points each</h7></li>
+              <li><h6 style="margin-bottom:-5px">Number of bins updated: 3</h6><h7>2 points each</h7></li>
+            </ul>
+      </div>
+
+ </div>
+ <div id="construction-screen">
+    <div class="row" style="background-color:#335CAD">
+        <ul class="side-nav">
+            <li><a class="back-button"><h6 class='link' style='color:#BCBDC0'>Back to Home Screen</h6></a></li>
+         </ul>
+         <div style="float:center; background-color:#70DB93">
+            <br/>
+            <h1> Under Construction </h1>
+            <br/>
+            <img src="img/construction.png" height="300" width="300" 
+              style="margin-bottom:100px"/>
+        </div>
+    </div>
+ </div>
+</body>
+</html>

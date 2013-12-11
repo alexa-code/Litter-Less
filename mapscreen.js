@@ -34,7 +34,7 @@ $(function() {
 
 	function initialize_big_map(x, y, coordX, coordY) {
 	  var mapOptions = {
-	    zoom: 19,
+	    zoom: 18,
 	    center: new google.maps.LatLng(x, y),
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	  };

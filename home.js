@@ -68,7 +68,7 @@ $(function() {
 		$(".reveal-modal-bg").remove();
 		// Check if username exists in database
 		if (db_usernames.indexOf(username) > -1 && (password == db_password)) {
-			$("#user").html("<h1 style='margin-top:20px'>" + username + "</h1>");
+			$("#user").html("<h1 style='margin-top:20px'>Hi, " + username + "!</h1>");
 			$(".sign-in").html("<h4>View Profile</h4>");
 			$(".sign-in").addClass("view-profile").removeClass("sign-in");
 		} else {

@@ -128,7 +128,7 @@ $(function() {
 	});
 
 	function add_bin() {
-		if (navigator.geolocation) {
+	if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
           function (position) {
               var lat = position.coords.latitude;
@@ -139,6 +139,20 @@ $(function() {
         );
       }
 	}
+
+	$("#main-page-add").on("click", function() {
+		$("#home-screen").css("display","none");
+		$("#map-screen").css("display","inline");
+		
+		add_bin();
+
+		$("#successfully-added").foundation("reveal","open");
+		setTimeout(function() {$("#successfully-added").hide();
+		$(".reveal-modal-bg").remove();
+		$("#successfully-added").attr("class","reveal-modal");
+		}, 3000);
+	});
+	
 	$(".new-bin").on("click", function() {
 		add_bin();
 

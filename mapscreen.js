@@ -18,7 +18,7 @@ $(function() {
 
 	function callback(response, status) {
 	        var routes = response.rows[0];
-	        var lowest = Number.POSITIVE_INFINITY;
+	        var lowest = 100000;
 	        var tmp;
 	        var shortestRouteIdx;
 	        for (var i = routes.elements.length - 1; i >= 0; i--) {
@@ -146,7 +146,7 @@ $(function() {
 		setTimeout(function() {$("#successfully-added").hide();
 					$(".reveal-modal-bg").remove();
 					$("#successfully-added").attr("class","reveal-modal");
-		}, 2000);
+		}, 3000);
 	});
 
 

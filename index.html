@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-	<title>Litter Less</title>
+	<title>LitterLess</title>
 	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.1/jquery.mobile-1.2.1.min.css" />
 	<link rel="stylesheet" href="css/foundation.css" />
 	<link rel="stylesheet" href="css/style.css" />
@@ -22,7 +22,7 @@
   <div id="home-screen">
 	<div class="row">
 		<div class="large-12 columns callout panel">
-			<h1>Litter Less</h1>
+			<h1><font color="#00763C">Litter &#x267B; Less</font></h1>
 		</div>
 	</div>
 	<div class="row">
@@ -66,38 +66,39 @@
 
 
 <div id="map-screen">
-  <div class="row" style="background-color:#335CAD">
+  <div class="row" style="background-color:#00CC66">
   	<ul class="side-nav">
-  	<li><a class="back-button"><h6 class='link' style='color:#BCBDC0'>Back to Home Screen</h6></a></li>
+  	<li><a class="back-button"><h6 class='link' style='color:white'>Back to Home Screen</h6></a></li>
 	</ul>
   </div>
   <div class="row" style="background-color:#f2f2f2">
    <ul class="side-nav">
-     <li><a class="new-bin"><h6 class='link'>Add New Bin to Current Location</h6></a></li>
+     <li><a class="new-bin"><h6 class='link' style="color:#00934A">Add New Bin to Current Location</h6></a></li>
      <li class="divider"></li>
-     <li><a><h6 class='link'>Remove Current Bin</h6></a></li>
-     <li><a><h6 class='link'>Report Current Bin</h6></a></li>
+     <li><a><h6 class='link' style="color:#00934A">Remove Current Bin</h6></a></li>
+     <li><a><h6 class='link' style="color:#00934A">Report Current Bin</h6></a></li>
      <li class="divider"></li>
-     <li><a><h6 class='link'>Show all Trash Bins Near Me</h6></a></li>
+     <li><a><h6 class='link' style="color:#00934A">Show all Trash Bins Near Me</h6></a></li>
    </ul>
+  </div>
+  <div id="successfully-added" class="reveal-modal"><h6>Successfully added a bin!</h6>
   </div>
   <div id="full_map_canvas"></div>
 </div>
 
 
 <div id="profile-screen">
-    <div class="row" style="background-color:#335CAD">
-        <ul class="side-nav">
-            <li><a class="back-button"><h6 class='link' style='color:#BCBDC0'>Back to Home Screen</h6></a></li>
-         </ul>
-    </div>
-    <div class="row" style="background-color:#70DB93">
-        <!-- <div class="small-6 columns"> -->
+  <div class="row" style="background-color:#00CC66">
+    <ul class="side-nav">
+    <li><a class="back-button"><h6 class='link' style='color:white'>Back to Home Screen</h6></a></li>
+  </ul>
+  </div>
+    <div class="row">
             <div id="user"><h1 style="margin-top:20px">Hi, User1!</h1></div>
-            <img src="img/TrashKing.jpg" height="150" width="150" 
-              style="margin-bottom:10px"/>
+            <div><ul class="side-nav">
+        <li class="divider"></li></ul></div>
             <h3>Your Current Rank:</h3> 
-            <h6 style="margin-top:-10px">Trash King</h6>
+            <h6 style="margin-top:-10px">Trash King &#x265b;</h6>
             <h4>Total Points: 40</h4> 
             <br />
             <div><ul class="side-nav">
@@ -120,10 +121,9 @@
             </ul>
       </div>
     </div>
-      <div class="row" style="background-color:#70DB93">
+      <div class="row">
         <div><ul class="side-nav">
         <li class="divider"></li></ul></div>
-      <!-- <div class="small-6 columns"> -->
           <img src="img/chart.png" height="250" width="250" style="margin-bottom:25px"/> 
         
       </div>
@@ -131,17 +131,17 @@
 
  </div>
  <div id="construction-screen">
-    <div class="row" style="background-color:#335CAD">
-        <ul class="side-nav">
-            <li><a class="back-button"><h6 class='link' style='color:#BCBDC0'>Back to Home Screen</h6></a></li>
-         </ul>
-         <div style="float:center; background-color:#70DB93">
+  <div class="row" style="background-color:#00CC66">
+    <ul class="side-nav">
+    <li><a class="back-button"><h6 class='link' style='color:white'>Back to Home Screen</h6></a></li>
+  </ul>
+  </div>
+  <div class="row">
             <br/>
             <h1> Under Construction </h1>
             <br/>
-            <img src="img/construction.png" height="300" width="300" 
+            <img src="img/construction.png" height="250" width="250" 
               style="margin-bottom:100px"/>
-        </div>
     </div>
  </div>
 </body>

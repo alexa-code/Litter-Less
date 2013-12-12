@@ -29,6 +29,19 @@ $(function() {
 		    	map: map
 		  	});
 		}
+		for (var i = 0; i < other_markers.length; i++) {
+			var coords = other_markers[i];
+			var coordX = coords[0];
+			var coordY = coords[1];
+			var marker = new google.maps.Marker({
+		    	position: new google.maps.LatLng(coordX, coordY),
+		    	icon: 
+		      		'img/recycling.png'
+		    	,
+		    	draggable: true,
+		    	map: map
+		  	});
+		}
 	}
 
 	function initialize(x, y) {

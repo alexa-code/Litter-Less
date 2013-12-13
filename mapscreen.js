@@ -150,7 +150,7 @@ $(function() {
 		setTimeout(function() {$("#successfully-added").hide();
 		$(".reveal-modal-bg").remove();
 		$("#successfully-added").attr("class","reveal-modal");
-		}, 3000);
+		}, 1000);
 	});
 	
 	$(".new-bin").on("click", function() {

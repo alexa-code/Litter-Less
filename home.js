@@ -79,7 +79,7 @@ $(function() {
 		var username = $("#username-input").val();
 		var password = $("#password-input").val();
 		$(".reveal-modal-bg").remove();
-		// Check if username exists in database
+		// Check if username exists in "database"
 		if (db_usernames.indexOf(username) > -1 && (password == db_password)) {
 			$("#user").html("<h1 style='margin-top:20px'>Hi, " + username + "!</h1>");
 			$(".sign-in").html("<h4>View Profile</h4>");

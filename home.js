@@ -38,7 +38,7 @@ $(function() {
 		    	icon: 
 		      		'img/recycling.png'
 		    	,
-		    	draggable: true,
+		    	draggable: false,
 		    	map: map
 		  	});
 		}

@@ -65,6 +65,7 @@ $(function() {
 			markers.push([x,y]);
 			markers_latlng.push(new google.maps.LatLng(x,y));
 		}
+		var map_markers = [];
 		for (var i = 0; i < markers.length; i++) {
 			var coords = markers[i];
 			var coordX = coords[0];
@@ -77,6 +78,35 @@ $(function() {
 		    	draggable: false,
 		    	map: map
 		  	});
+
+			map_markers.push(marker);
+		}
+
+		var not_full = '<div style="width:85px;height:65px"><h6>Trash Bin</h6><h4 style="margin-top:-5px">' +
+			'<small><strong>Status:</strong> Not full</small></h4></div>';
+
+		var full = '<div style="width:85px;height:65px"><h6>Trash Bin</h6><h4 style="margin-top:-5px">' +
+			'<small><strong>Status:</strong><h4 style="margin-top:-10px"><small>' +
+			'Overflowing</h6><small></div></small></h4></div>';
+
+		var infowindow = new google.maps.InfoWindow({
+			content: not_full
+		});
+
+		var fullinfowindow = new google.maps.InfoWindow({
+			content: full
+		});
+
+		for (var i = 0; i < map_markers.length; i++) {
+			if (i!=1) {
+				google.maps.event.addListener(map_markers[i], 'click', function() {
+	    			infowindow.open(map,this);
+	  			});
+			} else {
+				google.maps.event.addListener(map_markers[i], 'click', function() {
+	    			fullinfowindow.open(map,this);
+	  			});
+			}
 		}
 	}
 

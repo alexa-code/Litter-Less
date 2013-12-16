@@ -56,7 +56,7 @@ $(function() {
 	    	icon: 
 	      		'img/bluecircle.png'
 	    	,
-	  	   	draggable: true,
+	  	   	draggable: false,
 		   	map: map
 		});
 	}
@@ -74,7 +74,7 @@ $(function() {
 		    	icon: 
 		      		'img/trash-icon.png'
 		    	,
-		    	// draggable: true,
+		    	draggable: false,
 		    	map: map
 		  	});
 		}

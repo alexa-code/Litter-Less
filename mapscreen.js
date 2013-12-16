@@ -82,13 +82,13 @@ $(function() {
 			map_markers.push(marker);
 		}
 
-		var not_full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h4 style="margin-top:-7px">' +
-			'<small><strong>Status:</strong></small></h4><h4 style="margin-top:-22px">' +
-			'<small>Not full</small></h4></div>';
+		var not_full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
+			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
+			'<small>Not full</small></h3></div>';
 
-		var full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h4 style="margin-top:-7px">' +
-			'<small><strong>Status:</strong></small></h4><h4 style="margin-top:-22px">' +
-			'<small>Overflowing</small></h4></div>';
+		var full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
+			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
+			'<small>Overflowing</small></h3></div>';
 
 		var infowindow = new google.maps.InfoWindow({
 			content: not_full

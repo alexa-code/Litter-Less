@@ -86,13 +86,13 @@ $(function() {
 		var not_full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>Not full</small></h3>' +
-			'<small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
+			'<h3 style="margin-top:-7px"><small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>';
 
 		var full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>Overflowing</small></h3>' + 
-			'<small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
+			'<h3 style="margin-top:-7px"><small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>';
 
 		for (var i = 0; i < map_markers.length; i++) {

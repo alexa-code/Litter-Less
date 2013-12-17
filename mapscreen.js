@@ -83,32 +83,30 @@ $(function() {
 			map_markers.push(marker);
 		}
 
-		var not_full = '<div style="width:85px;height:125px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
+		var not_full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>Not full</small></h3>' +
 			'<h3 style="margin-top:-7px"><small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
-			'<small>';
+			'</div>';
 
-		var full = '<div style="width:85px;height:125px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
+		var full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>Overflowing</small></h3>' + 
 			'<h3 style="margin-top:-7px"><small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
-			'<small>';
+			'</div>';
 
+		var infowindow = new google.maps.InfoWindow({
+			content: not_full 
+		});
+		var fullinfowindow = new google.maps.InfoWindow({
+			content: full 
+		});	
 		for (var i = 0; i < map_markers.length; i++) {
-			var dist = (google.maps.geometry.spherical.computeDistanceBetween(currLatLng, markers_latlng[i])/1000).toFixed(2) + " miles";
-
 			if (i!=1) {
-				var infowindow = new google.maps.InfoWindow({
-					content: not_full + dist + '</small></div>'
-				});
 				google.maps.event.addListener(map_markers[i], 'click', function() {
 	    			infowindow.open(map,this);
 	  			});
 			} else {
-				var fullinfowindow = new google.maps.InfoWindow({
-					content: full + dist + '</small></div>'
-				});	
 				google.maps.event.addListener(map_markers[i], 'click', function() {
 	    			fullinfowindow.open(map,this);
 	  			});

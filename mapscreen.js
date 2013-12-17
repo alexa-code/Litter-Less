@@ -83,13 +83,13 @@ $(function() {
 			map_markers.push(marker);
 		}
 
-		var not_full = '<div style="width:85px;height:95px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
+		var not_full = '<div style="width:85px;height:125px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>Not full</small></h3>' +
 			'<h3 style="margin-top:-7px"><small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>';
 
-		var full = '<div style="width:85px;height:95px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
+		var full = '<div style="width:85px;height:125px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
 			'<small>Overflowing</small></h3>' + 
 			'<h3 style="margin-top:-7px"><small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +

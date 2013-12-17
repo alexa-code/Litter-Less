@@ -3,7 +3,8 @@ $(function() {
 	var map;
 	var markers_latlng = [(new google.maps.LatLng(38.9825, -76.94355)), 
 		(new google.maps.LatLng(38.989404, -76.936427)),
-		(new google.maps.LatLng(38.989799, -76.936526))];
+		(new google.maps.LatLng(38.989799, -76.936526)),
+		(new google.maps.LatLng(38.991099, -76.937226))];
 	var currX = 38.986067;
 	var currY = -76.942666;
 	var currLatLng = new google.maps.LatLng(38.986067, -76.942666);

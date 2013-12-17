@@ -2,14 +2,16 @@ $(function() {
 
 	var map;
 	var markers_latlng = [(new google.maps.LatLng(38.9825, -76.94355)), 
-		(new google.maps.LatLng(38.989903, -76.936427))];
+		(new google.maps.LatLng(38.989404, -76.936427)),
+		(new google.maps.LatLng(38.989799, -76.936526))];
 	var currX = 38.986067;
 	var currY = -76.942666;
+	var currLatLng = new google.maps.LatLng(38.986067, -76.942666);
 
 	function calculateDistances() {
 	    var service = new google.maps.DistanceMatrixService();
 	    service.getDistanceMatrix({
-	        origins: [new google.maps.LatLng(currX, currY)], 
+	        origins: [currLatLng], 
 	        destinations: markers_latlng, 
 	        travelMode: google.maps.TravelMode.WALKING,
 	        unitSystem: google.maps.UnitSystem.METRIC
@@ -29,7 +31,7 @@ $(function() {
 	            }
 	        }
 	        var shortestRoute = markers_latlng[shortestRouteIdx];
-	        calculateRoute(new google.maps.LatLng(currX,currY), shortestRoute)
+	        calculateRoute(currLatLng, shortestRoute)
 	}
 
 	function calculateRoute(start, end) {
@@ -78,32 +80,35 @@ $(function() {
 		    	draggable: false,
 		    	map: map
 		  	});
-
 			map_markers.push(marker);
 		}
 
 		var not_full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
-			'<small>Not full</small></h3></div>';
+			'<small>Not full</small></h3>' +
+			'<small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
+			'<small>';
 
 		var full = '<div style="width:85px;height:75px"><h6>Trash Bin</h6><h3 style="margin-top:-7px">' +
 			'<small><strong>Status:</strong></small></h3><h3 style="margin-top:-22px">' +
-			'<small>Overflowing</small></h3></div>';
-
-		var infowindow = new google.maps.InfoWindow({
-			content: not_full
-		});
-
-		var fullinfowindow = new google.maps.InfoWindow({
-			content: full
-		});
+			'<small>Overflowing</small></h3>' + 
+			'<small><strong>Distance:</strong></small></h3><h3 style="margin-top:-22px">' +
+			'<small>';
 
 		for (var i = 0; i < map_markers.length; i++) {
+			var dist = (google.maps.geometry.spherical.computeDistanceBetween(currLatLng, markers_latlng[i])/1000).toFixed(2) + " miles";
+
 			if (i!=1) {
+				var infowindow = new google.maps.InfoWindow({
+					content: not_full + dist + '</small></div>'
+				});
 				google.maps.event.addListener(map_markers[i], 'click', function() {
 	    			infowindow.open(map,this);
 	  			});
 			} else {
+				var fullinfowindow = new google.maps.InfoWindow({
+					content: full + dist + '</small></div>'
+				});	
 				google.maps.event.addListener(map_markers[i], 'click', function() {
 	    			fullinfowindow.open(map,this);
 	  			});
@@ -127,8 +132,8 @@ $(function() {
           	  currX = currLat;
           	  var currLng = position.coords.longitude;
           	  currY = currLng;
-              var initialLocation = new google.maps.LatLng(currLat, currLng);
-              map.setCenter(initialLocation);
+              currLatLng = new google.maps.LatLng(currLat, currLng);
+              map.setCenter(currLatLng);
               updateCurrPos(currLat, currLng);
           }, function(error) { console.log("failed");
           }, {maximumAge:Infinity, timeout:2000}

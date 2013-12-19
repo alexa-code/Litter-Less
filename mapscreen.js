@@ -9,50 +9,6 @@ $(function() {
 	var currY = -76.942666;
 	var currLatLng = new google.maps.LatLng(38.986067, -76.942666);
 
-	function calculateDistances() {
-	    var service = new google.maps.DistanceMatrixService();
-	    service.getDistanceMatrix({
-	        origins: [currLatLng], 
-	        destinations: markers_latlng, 
-	        travelMode: google.maps.TravelMode.WALKING,
-	        unitSystem: google.maps.UnitSystem.METRIC
-	    }, callback);
-	}
-
-	function callback(response, status) {
-	        var routes = response.rows[0];
-	        var lowest = 100000;
-	        var tmp;
-	        var shortestRouteIdx;
-	        for (var i = routes.elements.length - 1; i >= 0; i--) {
-	            tmp = routes.elements[i].duration.value;
-	            if (tmp < lowest) {
-	                lowest = tmp;
-	                shortestRouteIdx = i;
-	            }
-	        }
-	        var shortestRoute = markers_latlng[shortestRouteIdx];
-	        calculateRoute(currLatLng, shortestRoute)
-	}
-
-	function calculateRoute(start, end) {
-		directionsDisplay = new google.maps.DirectionsRenderer();
-	    var request = {
-	        origin: start,
-	        destination: end,
-	        travelMode: google.maps.TravelMode.WALKING
-	    };
-	    var directionsService = new google.maps.DirectionsService();
-	    directionsDisplay.setMap(map);
-	    directionsDisplay.setOptions( { suppressMarkers:true, preserveViewport:true } );
-	    directionsService.route(request, function (result, status) {
-	        if (status == google.maps.DirectionsStatus.OK) {
-	            directionsDisplay.setDirections(result);
-	        }
-	    });
-	}
-
-
 	function updateCurrPos(x, y) {
 		var marker = new google.maps.Marker({
 	    	position: new google.maps.LatLng(x, y),
@@ -141,7 +97,6 @@ $(function() {
       map = new google.maps.Map(document.getElementById('full_map_canvas'),
 	      mapOptions);
      updateMarkers(coordX, coordY);
-     calculateDistances();
       $("#full_map_canvas").show();
     }
 

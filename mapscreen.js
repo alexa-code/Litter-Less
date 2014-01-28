@@ -1,9 +1,9 @@
 $(function() {
-
 	var map;
 	var markers_latlng = [(new google.maps.LatLng(38.9825, -76.94355)), 
 		(new google.maps.LatLng(38.989404, -76.936427)),
 		(new google.maps.LatLng(38.989799, -76.936526)),
+		(new google.maps.LatLng(39.979905, -83.005215)),
 		(new google.maps.LatLng(38.991099, -76.937226))];
 	var currX = 38.986067;
 	var currY = -76.942666;
@@ -35,7 +35,7 @@ $(function() {
 	            }
 	        }
 	        var shortestRoute = markers_latlng[shortestRouteIdx];
-	        calculateRoute(currLatLng, shortestRoute)
+	        calculateRoute(currLatLng, shortestRoute);
 	}
 
 	function calculateRoute(start, end) {
@@ -143,6 +143,7 @@ $(function() {
       map = new google.maps.Map(document.getElementById('full_map_canvas'),
 	      mapOptions);
      updateMarkers(coordX, coordY);
+     calculateDistances();
       $("#full_map_canvas").show();
     }
 
